@@ -23,6 +23,24 @@
         .img-logo {
             height: 100px;
         }
+
+        .table-header {
+            background-color: #2d2e5e;
+        }
+
+        .bg-orange {
+            background-color: #003d8c;
+        }
+
+        .strip>tbody>tr:nth-child(2n+1)>td,
+        .strip>tbody>tr:nth-child(2n+1)>th {
+            background-color: rgb(99, 93, 133, 0.1);
+        }
+
+        .total-row>tbody>tr:last-child>td {
+            background-color: rgb(34, 62, 107, 0.8);
+            color: white;
+        }
     </style>
 </head>
 
@@ -31,22 +49,30 @@
     <div class="reveal">
         <div class="slides">
             <div class="row my-3">
-                <div class="col-6">
+                <div class="col-6 my-auto">
                     <img src="/logo-impro.png" class="img-logo" />
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <h3 class="goalText" id="goalText"></h3>
-                </div>
-                <div class="col-6">
-                    <h3 class="selledText" id="selledText"></h3>
+                <div class="col-6 my-auto row">
+                    <h3 id="monthText" class="col-auto mx-auto p-3 rounded text-light fw-bold" style="background-color:#004880;"></h3>
                 </div>
             </div>
-            <section>
+            <div class="row mb-3">
+                <div class="col-6 row">
+                    <img src="/goal.png" class="col-6 " style="height:50px; width:auto; margin: auto 0 auto auto;" />
+                    <h3 class="goalText fw-bold col-6 me-auto" id="goalText">
+
+
+
+                    </h3>
+                </div>
+                <div class="col-6 row">
+                    <h3 class="selledText col-auto mx-auto fw-bold" id="selledText"></h3>
+                </div>
+            </div>
+            <section data-background-image="/logo-impro.png" data-background-size="600px" data-background-opacity="0.3" data-background-position="100% 100%">
                 <div class="container">
-                    <div class=" text-light my-3">
-                        <h4 class="bg-primary">
+                    <div class=" text-light my-3 mx-auto row ms-1">
+                        <h4 class="mx-auto col-auto table-header fs-2">
                             Actividad del día
 
                         </h4>
@@ -54,8 +80,8 @@
                     <div class="card shadow">
                         <div class="card-body">
 
-                            <table class="table" id="table-sellers">
-                                <thead>
+                            <table class="table strip total-row" id="table-sellers">
+                                <thead class="table-header text-light">
                                     <tr>
                                         <th scope="col">Vendedor</th>
                                         <th scope="col">Cot Enviadas</th>
@@ -66,27 +92,34 @@
                                         <th scope="col">Total OC</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+
+                                </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section>
+            <section data-background-image="/logo-impro.png" data-background-size="600px" data-background-opacity="0.3" data-background-position="0% 100%">
                 <div class="container">
 
                     <div class="row">
                         <div class="col-6 mx-auto">
                             <div class="card shadow">
-                                <div class="card-body">
-                                    <canvas id="myChart"></canvas>
+                                <div class="card-header table-header text-light fs-3 my-3">
+                                    Ventas en el mes
+                                </div>
+                                <div class="card-body" id="myChartDiv">
                                 </div>
                             </div>
                         </div>
                         <div class="col-6 mx-auto">
                             <div class="card shadow">
-                                <div class="card-body">
-                                    <canvas id="goalChart"></canvas>
+                                <div class="card-header bg-orange text-light fs-3 my-3">
+                                    Total completado de la meta
+                                </div>
+                                <div class="card-body" id="goalChartDiv">
                                 </div>
                             </div>
                         </div>
@@ -96,33 +129,37 @@
 
 
             </section>
-            <section>
+            <section data-background-image="/logo-impro.png" data-background-size="600px" data-background-opacity="0.3" data-background-position="100% 100%">
                 <div class="container">
 
                     <div class="row">
-                        <div class="col-8 mx-auto">
+                        <div class="col-6 mx-auto">
                             <div class="card shadow">
-                                <div class="card-header">
+                                <div class="card-header bg-orange text-light fs-3 my-3">
                                     Últimas cotizaciones
                                 </div>
 
                                 <div class="card-body">
-                                    <table class="table" id="table-quotations">
-                                        <thead>
+                                    <table class="table strip" id="table-quotations">
+                                        <thead class="table-header text-light">
                                             <tr>
                                                 <th scope="col">Cliente</th>
                                                 <th scope="col">Vendedor</th>
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
+                                        <tbody></tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                       <!--  <div class="col-6 mx-auto">
+                        <div class="col-6 mx-auto">
                             <div class="card shadow">
+                                <div class="card-header table-header text-light fs-3 my-3">
+                                    Últimas ordenes
+                                </div>
                                 <div class="card-body">
-                                    <table class="table" id="table-orders">
+                                    <table class="table strip" id="table-orders">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Cliente</th>
@@ -130,10 +167,12 @@
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
+                                        <tbody></tbody>
+
                                     </table>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
 
                 </div>
@@ -147,7 +186,21 @@
 
 
     <script>
-        window.onload = async function() {
+        window.onload = loadData;
+
+        function formatNumber(number) {
+
+            return number.toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            });
+        }
+
+        window.setInterval(function() {
+            loadData();
+        }, 60000);
+
+        async function loadData() {
 
             const MONTHS_LIST = {
                 1: 'ENERO',
@@ -164,6 +217,13 @@
                 12: 'DICIEMBRE',
             }
 
+            var date = new Date();
+            var month = date.getMonth();
+            var day = date.getDate();
+            console.log('date:', date)
+
+            document.getElementById('monthText').innerText = day + ' de ' + MONTHS_LIST[month];
+
             let acum = 0;
             let test1 = null;
             let goalTotal = 0;
@@ -172,7 +232,9 @@
                 data = null
             }) {
 
-                const tbl = document.getElementById('table-sellers');
+
+                const tbl = document.getElementById('table-sellers').getElementsByTagName('tbody')[0];
+                tbl.innerHTML = '';
 
                 // Esto se debe cambiar si entra un vendedor nuevo
                 for (var i = 2; i <= 7; i++) {
@@ -180,7 +242,7 @@
                     for (var j = 0; j < 7; j++) {
                         var td = tr.insertCell();
                         if (j >= 4) {
-                            td.appendChild(document.createTextNode('$' + data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')]));
+                            td.appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')])));
                         } else {
 
                             td.appendChild(document.createTextNode(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')]));
@@ -192,14 +254,42 @@
             async function tableCreateLastQuotes({
                 data = null
             }) {
-                const tbl = document.getElementById('table-quotations');
+                const tbl = document.getElementById('table-quotations').getElementsByTagName('tbody')[0];
+                tbl.innerHTML = '';
+
                 console.log(data)
                 // Esto se debe cambiar si entra un vendedor nuevo
                 for (var i = 0; i < data.length; i++) {
                     var tr = tbl.insertRow();
                     tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_8']));
                     tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_3']));
-                    tr.insertCell().appendChild(document.createTextNode('$ ' + data[i]['__EMPTY_11']));
+                    tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY_11'])));
+                }
+            }
+
+
+
+            async function tableCreateLastOrders({
+                data = null
+            }) {
+                const tbl = document.getElementById('table-orders').getElementsByTagName('tbody')[0];
+                tbl.innerHTML = '';
+                let lastOrders = [];
+                for (var i = data.length - 1; i >= -1; i--) {
+                    if (data[i].__EMPTY_4 === 'O.C') {
+                        lastOrders.push(data[i]);
+                        if (lastOrders.length > 3) {
+                            break;
+                        }
+                    }
+                }
+
+                // Esto se debe cambiar si entra un vendedor nuevo
+                for (var i = 0; i < lastOrders.length; i++) {
+                    var tr = tbl.insertRow();
+                    tr.insertCell().appendChild(document.createTextNode(lastOrders[i]['__EMPTY_8']));
+                    tr.insertCell().appendChild(document.createTextNode(lastOrders[i]['__EMPTY_3']));
+                    tr.insertCell().appendChild(document.createTextNode(formatNumber(lastOrders[i]['__EMPTY_11'])));
                 }
             }
 
@@ -219,11 +309,18 @@
                     }
                 }
 
-                document.getElementById('goalText').innerText = 'Meta: $' + goalTotal;
-                document.getElementById('selledText').innerText = 'Vendidos: $' + Math.round(acum);
+                document.getElementById('goalText').innerText = 'Meta: ' + formatNumber(goalTotal);
+                document.getElementById('selledText').innerText = 'Vendidos: ' + formatNumber(Math.round(acum));
 
-                var ctx = document.getElementById('myChart').getContext('2d');
-                var ctxGoal = document.getElementById('goalChart').getContext('2d');
+                var ctx = document.createElement('canvas');
+                document.getElementById('myChartDiv').innerHTML = '';
+                document.getElementById('myChartDiv').appendChild(ctx);
+
+
+                var ctxGoal = document.createElement('canvas');
+                ctxGoal.setAttribute('class', 'mx-auto')
+                document.getElementById('goalChartDiv').innerHTML = '';
+                document.getElementById('goalChartDiv').appendChild(ctxGoal);
 
                 let percentFilled = Math.round((acum / goalTotal) * 100);
                 let percentLeft = ((100 - percentFilled) >= 0) ? (100 - percentFilled) : 0;
@@ -246,6 +343,7 @@
                         }]
                     },
                     options: {
+                        responsive: false,
 
                         scales: {
                             yAxes: [{
@@ -335,6 +433,11 @@
                     tableCreateLastQuotes({
                         data: dataLastQuotes.slice(Math.max(dataLastQuotes.length - 6, 1))
                     });
+
+                    tableCreateLastOrders({
+                        data: dataLastQuotes
+                    });
+
                     graphCreate({
                         dataMonth: dataMonth
                     })
