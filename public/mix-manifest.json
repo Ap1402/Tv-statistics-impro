@@ -1,4 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/chartjs-plugin-datalabels.min.js": "/js/chartjs-plugin-datalabels.min.js",
+    "/js/presentation.js": "/js/presentation.js",
     "/css/app.css": "/css/app.css"
 }

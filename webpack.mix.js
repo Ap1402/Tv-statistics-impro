@@ -12,10 +12,11 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/chartjs-plugin-datalabels.min.js', 'public/js')
+    .js('resources/js/presentation.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
 
 
-mix.js('chart.js/dist/chart.js', 'public/chart.js/chart.js');
 

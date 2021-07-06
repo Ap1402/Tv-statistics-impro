@@ -13,7 +13,7 @@ class fileController extends Controller
     {
         $file = null;
         if ($request->file('statistics')) {
-            $file = $request->file('statistics')->storeAs('', 'Cotizaciones.xlsx');
+            $file = $request->file('statistics')->storeAs('', 'cotizaciones.xlsx', ['disk' => 'public']);
             return back()->with('success', 'Archivo cargado con éxito');
         }
 
