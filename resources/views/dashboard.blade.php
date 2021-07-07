@@ -62,7 +62,7 @@
                     <h3 class="selledText col-auto mx-auto fw-bold" id="selledText"></h3>
 
                 </div>
-                <div class="col-4 my-auto row">
+                <div class="col-3 my-auto row mx-auto">
                     <table class="table strip" id="table-goals">
                         <thead class="table-header text-light" style="font-size:16px;">
                             <tr>
