@@ -48440,7 +48440,7 @@ function _loadData() {
                                 font: {
                                   style: 'bold',
                                   weight: 'bold',
-                                  size: '20px'
+                                  size: '24px'
                                 }
                               }
                             },
@@ -48477,7 +48477,7 @@ function _loadData() {
                                 font: {
                                   style: 'bold',
                                   weight: 'bold',
-                                  size: '18px'
+                                  size: '22px'
                                 }
                               }
                             },

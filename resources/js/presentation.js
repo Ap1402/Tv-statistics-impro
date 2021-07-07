@@ -187,7 +187,7 @@ async function loadData() {
                         font: {
                             style: 'bold',
                             weight: 'bold',
-                            size: '20px'
+                            size: '24px'
                         }
                     }
                 },
@@ -243,7 +243,7 @@ async function loadData() {
                             style: 'bold',
                             weight: 'bold',
 
-                            size: '18px'
+                            size: '22px'
                         }
                     }
                 },
