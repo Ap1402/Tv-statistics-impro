@@ -20,7 +20,15 @@
         }
 
         .img-logo {
-            height: 100px;
+            height: 150px;
+        }
+
+        tbody {
+            font-size: 20px;
+        }
+
+        thead {
+            font-size: 20px;
         }
 
         .table-header {
@@ -50,12 +58,24 @@
             <div class="row my-3">
                 <div class="col-6 my-auto">
                     <img src="/logo-impro.png" class="img-logo" />
+                    <h3 class="goalText fw-bold col-auto mx-auto" id="goalText" style="margin-top:30px;">
+                    <h3 class="selledText col-auto mx-auto fw-bold" id="selledText"></h3>
+
                 </div>
-                <div class="col-6 my-auto row">
-                    <h3 id="monthText" class="col-auto mx-auto p-3 rounded text-light fw-bold" style="background-color:#004880;"></h3>
+                <div class="col-4 my-auto row">
+                    <table class="table strip" id="table-goals">
+                        <thead class="table-header text-light" style="font-size:16px;">
+                            <tr>
+                                <th scope="col">Vendedor</th>
+                                <th scope="col">Meta</th>
+                            </tr>
+                        </thead>
+                        <tbody style="font-size:18px;"></tbody>
+                    </table>
+                    <h3 id="monthText" class="col-auto mx-auto p-3 rounded text-light fw-bold d-none" style="background-color:#004880;"></h3>
                 </div>
             </div>
-            <div class="row mb-3">
+            <div class="row mb-3 d-none">
                 <div class="col-6 row">
                     <img src="/goal.png" class="col-6 " style="height:50px; width:auto; margin: auto 0 auto auto;" />
                     <h3 class="goalText fw-bold col-6 me-auto" id="goalText">
@@ -68,7 +88,7 @@
                     <h3 class="selledText col-auto mx-auto fw-bold" id="selledText"></h3>
                 </div>
             </div>
-            <section data-background-image="/logo-impro.png" data-background-size="600px" data-background-opacity="0.3" data-background-position="100% 100%">
+            <section data-background-image="/logo-impro.png" data-background-size="700px" data-background-opacity="0.3" data-background-position="50% 40%">
                 <div class="container">
                     <div class=" text-light my-3 mx-auto row ms-1">
                         <h4 class="mx-auto col-auto table-header fs-2">
@@ -100,7 +120,7 @@
                 </div>
             </section>
 
-            <section data-background-image="/logo-impro.png" data-background-size="600px" data-background-opacity="0.3" data-background-position="0% 100%">
+            <section data-background-image="/logo-impro.png" data-background-size="700px" data-background-opacity="0.3" data-background-position="50% 40%">
                 <div class="container">
 
                     <div class="row">
@@ -128,7 +148,7 @@
 
 
             </section>
-            <section data-background-image="/logo-impro.png" data-background-size="600px" data-background-opacity="0.3" data-background-position="100% 100%">
+            <section data-background-image="/logo-impro.png" data-background-size="700px" data-background-opacity="0.3" data-background-position="50% 40%">
                 <div class="container">
 
                     <div class="row">

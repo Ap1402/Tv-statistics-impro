@@ -48146,40 +48146,266 @@ loadData();
 window.setInterval(function () {
   loadData();
 }, 60000);
+var MONTHS_LIST = {
+  1: 'ENERO',
+  2: 'FEBRERO',
+  3: 'MARZO',
+  4: 'ABRIL',
+  5: 'MAYO',
+  6: 'JUNIO',
+  7: 'JULIO',
+  8: 'AGOSTO',
+  9: 'SEPTIEMBRE',
+  10: 'OCTUBRE',
+  11: 'NOVIEMBRE',
+  12: 'DICIEMBRE'
+};
+var date = new Date();
+var month = date.getMonth() + 1;
+var day = date.getDate();
+document.getElementById('monthText').innerText = day + ' de ' + MONTHS_LIST[month];
+
+function tableCreate(_x) {
+  return _tableCreate.apply(this, arguments);
+}
+
+function _tableCreate() {
+  _tableCreate = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(_ref) {
+    var _ref$data, data, tbl, i, tr, j, td;
+
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _ref$data = _ref.data, data = _ref$data === void 0 ? null : _ref$data;
+            tbl = document.getElementById('table-sellers').getElementsByTagName('tbody')[0];
+            tbl.innerHTML = ''; // Esto se debe cambiar si entra un vendedor nuevo
+
+            for (i = 2; i <= 7; i++) {
+              tr = tbl.insertRow();
+
+              for (j = 0; j < 7; j++) {
+                td = tr.insertCell();
+
+                if (j >= 4) {
+                  td.appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')])));
+                } else {
+                  td.appendChild(document.createTextNode(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')]));
+                }
+              }
+            }
+
+          case 4:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _tableCreate.apply(this, arguments);
+}
+
+function tableCreateLastQuotes(_x2) {
+  return _tableCreateLastQuotes.apply(this, arguments);
+}
+
+function _tableCreateLastQuotes() {
+  _tableCreateLastQuotes = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(_ref2) {
+    var _ref2$data, data, tbl, i, tr;
+
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _ref2$data = _ref2.data, data = _ref2$data === void 0 ? null : _ref2$data;
+            tbl = document.getElementById('table-quotations').getElementsByTagName('tbody')[0];
+            tbl.innerHTML = ''; // Esto se debe cambiar si entra un vendedor nuevo
+
+            for (i = 0; i < data.length - 1; i++) {
+              tr = tbl.insertRow();
+              tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_8']));
+              tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_3']));
+              tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY_11'])));
+            }
+
+          case 4:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return _tableCreateLastQuotes.apply(this, arguments);
+}
+
+function tableCreateLastOrders(_x3) {
+  return _tableCreateLastOrders.apply(this, arguments);
+}
+
+function _tableCreateLastOrders() {
+  _tableCreateLastOrders = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(_ref3) {
+    var _ref3$data, data, tbl, lastOrders, i, tr;
+
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _ref3$data = _ref3.data, data = _ref3$data === void 0 ? null : _ref3$data;
+            tbl = document.getElementById('table-orders').getElementsByTagName('tbody')[0];
+            tbl.innerHTML = '';
+            lastOrders = [];
+            i = data.length - 1;
+
+          case 5:
+            if (!(i >= -1)) {
+              _context3.next = 13;
+              break;
+            }
+
+            if (!(data[i].__EMPTY_4 === 'O.C')) {
+              _context3.next = 10;
+              break;
+            }
+
+            lastOrders.push(data[i]);
+
+            if (!(lastOrders.length > 3)) {
+              _context3.next = 10;
+              break;
+            }
+
+            return _context3.abrupt("break", 13);
+
+          case 10:
+            i--;
+            _context3.next = 5;
+            break;
+
+          case 13:
+            // Esto se debe cambiar si entra un vendedor nuevo
+            for (i = 0; i < lastOrders.length; i++) {
+              tr = tbl.insertRow();
+              tr.insertCell().appendChild(document.createTextNode(lastOrders[i]['__EMPTY_8']));
+              tr.insertCell().appendChild(document.createTextNode(lastOrders[i]['__EMPTY_3']));
+              tr.insertCell().appendChild(document.createTextNode(formatNumber(lastOrders[i]['__EMPTY_11'])));
+            }
+
+          case 14:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  }));
+  return _tableCreateLastOrders.apply(this, arguments);
+}
+
+function tableCreateGoals(_x4) {
+  return _tableCreateGoals.apply(this, arguments);
+}
+
+function _tableCreateGoals() {
+  _tableCreateGoals = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(_ref4) {
+    var _ref4$data, data, tbl, i, tr;
+
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _ref4$data = _ref4.data, data = _ref4$data === void 0 ? null : _ref4$data;
+            tbl = document.getElementById('table-goals').getElementsByTagName('tbody')[0];
+            tbl.innerHTML = '';
+            i = 0;
+
+          case 4:
+            if (!(i < data.length)) {
+              _context4.next = 13;
+              break;
+            }
+
+            if (!(data[i]['Vendedor'] === 'JESUS MONTOYA')) {
+              _context4.next = 7;
+              break;
+            }
+
+            return _context4.abrupt("continue", 10);
+
+          case 7:
+            tr = tbl.insertRow();
+            tr.insertCell().appendChild(document.createTextNode(data[i]['Vendedor']));
+            tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i][MONTHS_LIST[month]])));
+
+          case 10:
+            i++;
+            _context4.next = 4;
+            break;
+
+          case 13:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4);
+  }));
+  return _tableCreateGoals.apply(this, arguments);
+}
 
 function loadData() {
   return _loadData.apply(this, arguments);
 }
 
 function _loadData() {
-  _loadData = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
-    var MONTHS_LIST, date, month, day, acum, test1, goalTotal, tableCreate, _tableCreate, tableCreateLastQuotes, _tableCreateLastQuotes, tableCreateLastOrders, _tableCreateLastOrders, graphCreate, _graphCreate, readExcel, result;
+  _loadData = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
+    var acum, goalTotal, graphCreate, _graphCreate, readExcel, result;
 
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
       while (1) {
-        switch (_context6.prev = _context6.next) {
+        switch (_context7.prev = _context7.next) {
           case 0:
             _graphCreate = function _graphCreate3() {
-              _graphCreate = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(_ref4) {
-                var _ref4$dataMonth, dataMonth, labels, data, i, ctx, ctxGoal, percentFilled, percentLeft, goalChart, myChart;
+              _graphCreate = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(_ref5) {
+                var _ref5$dataMonth, dataMonth, labels, data, i, ctx, ctxGoal, percentFilled, percentLeft, goalChart, myChart;
 
-                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
                   while (1) {
-                    switch (_context5.prev = _context5.next) {
+                    switch (_context6.prev = _context6.next) {
                       case 0:
-                        _ref4$dataMonth = _ref4.dataMonth, dataMonth = _ref4$dataMonth === void 0 ? null : _ref4$dataMonth;
+                        _ref5$dataMonth = _ref5.dataMonth, dataMonth = _ref5$dataMonth === void 0 ? null : _ref5$dataMonth;
                         labels = [];
                         data = []; // Esto se debe cambiar si entra un vendedor nuevo
 
-                        for (i = 2; i <= 7; i++) {
-                          if (i <= 7) {
-                            labels.push(dataMonth[i].__EMPTY_1);
-                            acum += dataMonth[i].__EMPTY_7;
-                            goalTotal += dataMonth[i].__EMPTY_9;
-                            data.push(dataMonth[i].__EMPTY_7);
-                          }
+                        i = 2;
+
+                      case 4:
+                        if (!(i <= 7)) {
+                          _context6.next = 15;
+                          break;
                         }
 
+                        if (!(i <= 7)) {
+                          _context6.next = 12;
+                          break;
+                        }
+
+                        if (!(dataMonth[i].__EMPTY_1 === 'JESUS MONTOYA')) {
+                          _context6.next = 8;
+                          break;
+                        }
+
+                        return _context6.abrupt("continue", 12);
+
+                      case 8:
+                        labels.push(dataMonth[i].__EMPTY_1);
+                        acum += dataMonth[i].__EMPTY_7;
+                        goalTotal += dataMonth[i].__EMPTY_9;
+                        data.push(dataMonth[i].__EMPTY_7);
+
+                      case 12:
+                        i++;
+                        _context6.next = 4;
+                        break;
+
+                      case 15:
                         document.getElementById('goalText').innerText = 'Meta: ' + formatNumber(goalTotal);
                         document.getElementById('selledText').innerText = 'Vendidos: ' + formatNumber(Math.round(acum));
                         ctx = document.createElement('canvas');
@@ -48250,7 +48476,8 @@ function _loadData() {
                                 },
                                 font: {
                                   style: 'bold',
-                                  weight: 'bold'
+                                  weight: 'bold',
+                                  size: '18px'
                                 }
                               }
                             },
@@ -48262,185 +48489,29 @@ function _loadData() {
                           }
                         });
 
-                      case 17:
+                      case 28:
                       case "end":
-                        return _context5.stop();
+                        return _context6.stop();
                     }
                   }
-                }, _callee5);
+                }, _callee6);
               }));
               return _graphCreate.apply(this, arguments);
             };
 
-            graphCreate = function _graphCreate2(_x4) {
+            graphCreate = function _graphCreate2(_x5) {
               return _graphCreate.apply(this, arguments);
             };
 
-            _tableCreateLastOrders = function _tableCreateLastOrder2() {
-              _tableCreateLastOrders = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(_ref3) {
-                var _ref3$data, data, tbl, lastOrders, i, tr;
-
-                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
-                  while (1) {
-                    switch (_context4.prev = _context4.next) {
-                      case 0:
-                        _ref3$data = _ref3.data, data = _ref3$data === void 0 ? null : _ref3$data;
-                        tbl = document.getElementById('table-orders').getElementsByTagName('tbody')[0];
-                        tbl.innerHTML = '';
-                        lastOrders = [];
-                        i = data.length - 1;
-
-                      case 5:
-                        if (!(i >= -1)) {
-                          _context4.next = 13;
-                          break;
-                        }
-
-                        if (!(data[i].__EMPTY_4 === 'O.C')) {
-                          _context4.next = 10;
-                          break;
-                        }
-
-                        lastOrders.push(data[i]);
-
-                        if (!(lastOrders.length > 3)) {
-                          _context4.next = 10;
-                          break;
-                        }
-
-                        return _context4.abrupt("break", 13);
-
-                      case 10:
-                        i--;
-                        _context4.next = 5;
-                        break;
-
-                      case 13:
-                        // Esto se debe cambiar si entra un vendedor nuevo
-                        for (i = 0; i < lastOrders.length; i++) {
-                          tr = tbl.insertRow();
-                          tr.insertCell().appendChild(document.createTextNode(lastOrders[i]['__EMPTY_8']));
-                          tr.insertCell().appendChild(document.createTextNode(lastOrders[i]['__EMPTY_3']));
-                          tr.insertCell().appendChild(document.createTextNode(formatNumber(lastOrders[i]['__EMPTY_11'])));
-                        }
-
-                      case 14:
-                      case "end":
-                        return _context4.stop();
-                    }
-                  }
-                }, _callee4);
-              }));
-              return _tableCreateLastOrders.apply(this, arguments);
-            };
-
-            tableCreateLastOrders = function _tableCreateLastOrder(_x3) {
-              return _tableCreateLastOrders.apply(this, arguments);
-            };
-
-            _tableCreateLastQuotes = function _tableCreateLastQuote2() {
-              _tableCreateLastQuotes = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(_ref2) {
-                var _ref2$data, data, tbl, i, tr;
-
-                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-                  while (1) {
-                    switch (_context3.prev = _context3.next) {
-                      case 0:
-                        _ref2$data = _ref2.data, data = _ref2$data === void 0 ? null : _ref2$data;
-                        tbl = document.getElementById('table-quotations').getElementsByTagName('tbody')[0];
-                        tbl.innerHTML = '';
-                        console.log(data); // Esto se debe cambiar si entra un vendedor nuevo
-
-                        for (i = 0; i < data.length; i++) {
-                          tr = tbl.insertRow();
-                          tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_8']));
-                          tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_3']));
-                          tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY_11'])));
-                        }
-
-                      case 5:
-                      case "end":
-                        return _context3.stop();
-                    }
-                  }
-                }, _callee3);
-              }));
-              return _tableCreateLastQuotes.apply(this, arguments);
-            };
-
-            tableCreateLastQuotes = function _tableCreateLastQuote(_x2) {
-              return _tableCreateLastQuotes.apply(this, arguments);
-            };
-
-            _tableCreate = function _tableCreate3() {
-              _tableCreate = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(_ref) {
-                var _ref$data, data, tbl, i, tr, j, td;
-
-                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-                  while (1) {
-                    switch (_context2.prev = _context2.next) {
-                      case 0:
-                        _ref$data = _ref.data, data = _ref$data === void 0 ? null : _ref$data;
-                        tbl = document.getElementById('table-sellers').getElementsByTagName('tbody')[0];
-                        tbl.innerHTML = ''; // Esto se debe cambiar si entra un vendedor nuevo
-
-                        for (i = 2; i <= 7; i++) {
-                          tr = tbl.insertRow();
-
-                          for (j = 0; j < 7; j++) {
-                            td = tr.insertCell();
-
-                            if (j >= 4) {
-                              td.appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')])));
-                            } else {
-                              td.appendChild(document.createTextNode(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')]));
-                            }
-                          }
-                        }
-
-                      case 4:
-                      case "end":
-                        return _context2.stop();
-                    }
-                  }
-                }, _callee2);
-              }));
-              return _tableCreate.apply(this, arguments);
-            };
-
-            tableCreate = function _tableCreate2(_x) {
-              return _tableCreate.apply(this, arguments);
-            };
-
-            MONTHS_LIST = {
-              1: 'ENERO',
-              2: 'FEBRERO',
-              3: 'MARZO',
-              4: 'ABRIL',
-              5: 'MAYO',
-              6: 'JUNIO',
-              7: 'JULIO',
-              8: 'AGOSTO',
-              9: 'SEPTIEMBRE',
-              10: 'OCTUBRE',
-              11: 'NOVIEMBRE',
-              12: 'DICIEMBRE'
-            };
-            date = new Date();
-            month = date.getMonth() + 1;
-            day = date.getDate();
-            console.log('date:', date);
-            document.getElementById('monthText').innerText = day + ' de ' + MONTHS_LIST[month];
             acum = 0;
-            test1 = null;
             goalTotal = 0;
 
             readExcel = /*#__PURE__*/function () {
-              var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(file) {
+              var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(file) {
                 var oReq;
-                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
                   while (1) {
-                    switch (_context.prev = _context.next) {
+                    switch (_context5.prev = _context5.next) {
                       case 0:
                         oReq = new XMLHttpRequest();
                         oReq.open("GET", "storage/Cotizaciones.xlsx", true);
@@ -48475,7 +48546,6 @@ function _loadData() {
                           var dataMonth = xlsx__WEBPACK_IMPORTED_MODULE_2___default().utils.sheet_to_json(wsMonth);
                           var dataGoals = xlsx__WEBPACK_IMPORTED_MODULE_2___default().utils.sheet_to_json(wsGoals);
                           var dataLastQuotes = xlsx__WEBPACK_IMPORTED_MODULE_2___default().utils.sheet_to_json(wsQuotations);
-                          console.log(dataLastQuotes);
                           tableCreate({
                             data: test
                           });
@@ -48484,6 +48554,9 @@ function _loadData() {
                           });
                           tableCreateLastOrders({
                             data: dataLastQuotes
+                          });
+                          tableCreateGoals({
+                            data: dataGoals
                           });
                           graphCreate({
                             dataMonth: dataMonth
@@ -48494,29 +48567,29 @@ function _loadData() {
 
                       case 5:
                       case "end":
-                        return _context.stop();
+                        return _context5.stop();
                     }
                   }
-                }, _callee);
+                }, _callee5);
               }));
 
-              return function readExcel(_x5) {
-                return _ref5.apply(this, arguments);
+              return function readExcel(_x6) {
+                return _ref6.apply(this, arguments);
               };
             }();
 
-            _context6.next = 20;
+            _context7.next = 7;
             return readExcel("storage/Cotizaciones.xlsx");
 
-          case 20:
-            result = _context6.sent;
+          case 7:
+            result = _context7.sent;
 
-          case 21:
+          case 8:
           case "end":
-            return _context6.stop();
+            return _context7.stop();
         }
       }
-    }, _callee6);
+    }, _callee7);
   }));
   return _loadData.apply(this, arguments);
 }

@@ -16,98 +16,111 @@ window.setInterval(function () {
     loadData();
 }, 60000);
 
+const MONTHS_LIST = {
+    1: 'ENERO',
+    2: 'FEBRERO',
+    3: 'MARZO',
+    4: 'ABRIL',
+    5: 'MAYO',
+    6: 'JUNIO',
+    7: 'JULIO',
+    8: 'AGOSTO',
+    9: 'SEPTIEMBRE',
+    10: 'OCTUBRE',
+    11: 'NOVIEMBRE',
+    12: 'DICIEMBRE',
+}
+
+var date = new Date();
+var month = date.getMonth() + 1;
+var day = date.getDate();
+document.getElementById('monthText').innerText = day + ' de ' + MONTHS_LIST[month];
+
+async function tableCreate({
+    data = null
+}) {
+
+
+    const tbl = document.getElementById('table-sellers').getElementsByTagName('tbody')[0];
+    tbl.innerHTML = '';
+
+    // Esto se debe cambiar si entra un vendedor nuevo
+    for (var i = 2; i <= 7; i++) {
+        var tr = tbl.insertRow();
+        for (var j = 0; j < 7; j++) {
+            var td = tr.insertCell();
+            if (j >= 4) {
+                td.appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')])));
+            } else {
+
+                td.appendChild(document.createTextNode(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')]));
+            }
+        }
+    }
+}
+
+async function tableCreateLastQuotes({
+    data = null
+}) {
+    const tbl = document.getElementById('table-quotations').getElementsByTagName('tbody')[0];
+    tbl.innerHTML = '';
+    // Esto se debe cambiar si entra un vendedor nuevo
+    for (var i = 0; i < data.length-1; i++) {
+        var tr = tbl.insertRow();
+        tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_8']));
+        tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_3']));
+        tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY_11'])));
+    }
+}
+
+
+async function tableCreateLastOrders({
+    data = null
+}) {
+    const tbl = document.getElementById('table-orders').getElementsByTagName('tbody')[0];
+    tbl.innerHTML = '';
+    let lastOrders = [];
+    for (var i = data.length - 1; i >= -1; i--) {
+        if (data[i].__EMPTY_4 === 'O.C') {
+            lastOrders.push(data[i]);
+            if (lastOrders.length > 3) {
+                break;
+            }
+        }
+    }
+
+    // Esto se debe cambiar si entra un vendedor nuevo
+    for (var i = 0; i < lastOrders.length; i++) {
+        var tr = tbl.insertRow();
+        tr.insertCell().appendChild(document.createTextNode(lastOrders[i]['__EMPTY_8']));
+        tr.insertCell().appendChild(document.createTextNode(lastOrders[i]['__EMPTY_3']));
+        tr.insertCell().appendChild(document.createTextNode(formatNumber(lastOrders[i]['__EMPTY_11'])));
+    }
+}
+
+
+async function tableCreateGoals({
+    data = null
+}) {
+    const tbl = document.getElementById('table-goals').getElementsByTagName('tbody')[0];
+    tbl.innerHTML = '';
+
+    for (var i = 0; i < data.length; i++) {
+        if (data[i]['Vendedor'] === 'JESUS MONTOYA') {
+            continue;
+        }
+        var tr = tbl.insertRow();
+        tr.insertCell().appendChild(document.createTextNode(data[i]['Vendedor']));
+        tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i][MONTHS_LIST[month]])));
+    }
+
+}
+
 async function loadData() {
 
-    const MONTHS_LIST = {
-        1: 'ENERO',
-        2: 'FEBRERO',
-        3: 'MARZO',
-        4: 'ABRIL',
-        5: 'MAYO',
-        6: 'JUNIO',
-        7: 'JULIO',
-        8: 'AGOSTO',
-        9: 'SEPTIEMBRE',
-        10: 'OCTUBRE',
-        11: 'NOVIEMBRE',
-        12: 'DICIEMBRE',
-    }
-
-    var date = new Date();
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    console.log('date:', date)
-
-    document.getElementById('monthText').innerText = day + ' de ' + MONTHS_LIST[month];
 
     let acum = 0;
-    let test1 = null;
     let goalTotal = 0;
-
-    async function tableCreate({
-        data = null
-    }) {
-
-
-        const tbl = document.getElementById('table-sellers').getElementsByTagName('tbody')[0];
-        tbl.innerHTML = '';
-
-        // Esto se debe cambiar si entra un vendedor nuevo
-        for (var i = 2; i <= 7; i++) {
-            var tr = tbl.insertRow();
-            for (var j = 0; j < 7; j++) {
-                var td = tr.insertCell();
-                if (j >= 4) {
-                    td.appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')])));
-                } else {
-
-                    td.appendChild(document.createTextNode(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')]));
-                }
-            }
-        }
-    }
-
-    async function tableCreateLastQuotes({
-        data = null
-    }) {
-        const tbl = document.getElementById('table-quotations').getElementsByTagName('tbody')[0];
-        tbl.innerHTML = '';
-
-        console.log(data)
-        // Esto se debe cambiar si entra un vendedor nuevo
-        for (var i = 0; i < data.length; i++) {
-            var tr = tbl.insertRow();
-            tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_8']));
-            tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_3']));
-            tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY_11'])));
-        }
-    }
-
-
-
-    async function tableCreateLastOrders({
-        data = null
-    }) {
-        const tbl = document.getElementById('table-orders').getElementsByTagName('tbody')[0];
-        tbl.innerHTML = '';
-        let lastOrders = [];
-        for (var i = data.length - 1; i >= -1; i--) {
-            if (data[i].__EMPTY_4 === 'O.C') {
-                lastOrders.push(data[i]);
-                if (lastOrders.length > 3) {
-                    break;
-                }
-            }
-        }
-
-        // Esto se debe cambiar si entra un vendedor nuevo
-        for (var i = 0; i < lastOrders.length; i++) {
-            var tr = tbl.insertRow();
-            tr.insertCell().appendChild(document.createTextNode(lastOrders[i]['__EMPTY_8']));
-            tr.insertCell().appendChild(document.createTextNode(lastOrders[i]['__EMPTY_3']));
-            tr.insertCell().appendChild(document.createTextNode(formatNumber(lastOrders[i]['__EMPTY_11'])));
-        }
-    }
 
 
     async function graphCreate({
@@ -118,6 +131,9 @@ async function loadData() {
         // Esto se debe cambiar si entra un vendedor nuevo
         for (var i = 2; i <= 7; i++) {
             if ((i <= 7)) {
+                if (dataMonth[i].__EMPTY_1 === 'JESUS MONTOYA') {
+                    continue;
+                }
                 labels.push(dataMonth[i].__EMPTY_1);
                 acum += dataMonth[i].__EMPTY_7;
                 goalTotal += dataMonth[i].__EMPTY_9;
@@ -226,6 +242,8 @@ async function loadData() {
                         font: {
                             style: 'bold',
                             weight: 'bold',
+
+                            size: '18px'
                         }
                     }
                 },
@@ -272,8 +290,6 @@ async function loadData() {
             const dataMonth = XLSX.utils.sheet_to_json(wsMonth);
             const dataGoals = XLSX.utils.sheet_to_json(wsGoals);
             const dataLastQuotes = XLSX.utils.sheet_to_json(wsQuotations);
-
-            console.log(dataLastQuotes)
             tableCreate({
                 data: test
             });
@@ -283,6 +299,9 @@ async function loadData() {
 
             tableCreateLastOrders({
                 data: dataLastQuotes
+            });
+            tableCreateGoals({
+                data: dataGoals
             });
 
             graphCreate({
