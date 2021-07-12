@@ -20,7 +20,7 @@
         }
 
         .img-logo {
-            height: 150px;
+            height: 130px;
         }
 
         tbody {
@@ -70,7 +70,7 @@
                                     <th scope="col">Meta</th>
                                 </tr>
                             </thead>
-                            <tbody style="font-size:18px;"></tbody>
+                            <tbody style="font-size:25px;"></tbody>
                         </table>
                         <h3 id="monthText" class="col-auto mx-auto p-3 rounded text-light fw-bold d-none" style="background-color:#004880;"></h3>
                 </div>
@@ -78,8 +78,6 @@
             <div class="row mb-3 d-none">
                 <div class="col-6 row">
                     <h3 class="goalText fw-bold col-6 me-auto" id="goalText">
-
-
 
                     </h3>
                 </div>
@@ -110,7 +108,7 @@
                                         <th scope="col">Total OC</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody style="font-size:25px;">
 
                                 </tbody>
                             </table>
@@ -123,7 +121,7 @@
                 <div class="container">
 
                     <div class="row">
-                        <div class="col-6 mx-auto">
+                        <div class="col-8 mx-auto">
                             <div class="card shadow">
                                 <div class="card-header table-header text-light fs-3 my-3">
                                     Ventas en el mes
@@ -132,7 +130,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 mx-auto">
+                        <div class="col-4 mx-auto">
                             <div class="card shadow">
                                 <div class="card-header bg-orange text-light fs-3 my-3">
                                     Total completado de la meta
@@ -151,7 +149,7 @@
                 <div class="container">
 
                     <div class="row">
-                        <div class="col-6 mx-auto">
+                        <div class="col-12 mx-auto">
                             <div class="card shadow">
                                 <div class="card-header bg-orange text-light fs-3 my-3">
                                     Últimas cotizaciones
@@ -166,12 +164,25 @@
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
-                                        <tbody></tbody>
+                                        <tbody style="font-size:30px;">
+
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 mx-auto">
+
+                    </div>
+
+                </div>
+
+
+            </section>
+            <section data-background-image="/logo-impro.png" data-background-size="700px" data-background-opacity="0.3" data-background-position="50% 100%">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-12 mx-auto">
                             <div class="card shadow">
                                 <div class="card-header table-header text-light fs-3 my-3">
                                     Últimas ordenes
@@ -185,8 +196,9 @@
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
-                                        <tbody></tbody>
+                                        <tbody style="font-size:30px;">
 
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>

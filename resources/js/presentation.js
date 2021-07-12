@@ -65,7 +65,7 @@ async function tableCreateLastQuotes({
     const tbl = document.getElementById('table-quotations').getElementsByTagName('tbody')[0];
     tbl.innerHTML = '';
     // Esto se debe cambiar si entra un vendedor nuevo
-    for (var i = 0; i < data.length-1; i++) {
+    for (var i = 0; i < data.length - 1; i++) {
         var tr = tbl.insertRow();
         tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_8']));
         tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_3']));
@@ -184,6 +184,8 @@ async function loadData() {
                         formatter: function (value, context) {
                             return value + ' %';
                         },
+                        rotation: 270,
+
                         font: {
                             style: 'bold',
                             weight: 'bold',
@@ -243,7 +245,7 @@ async function loadData() {
                             style: 'bold',
                             weight: 'bold',
 
-                            size: '22px'
+                            size: '30px'
                         }
                     }
                 },

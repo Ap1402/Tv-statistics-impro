@@ -48437,6 +48437,7 @@ function _loadData() {
                                 formatter: function formatter(value, context) {
                                   return value + ' %';
                                 },
+                                rotation: 270,
                                 font: {
                                   style: 'bold',
                                   weight: 'bold',
@@ -48477,7 +48478,7 @@ function _loadData() {
                                 font: {
                                   style: 'bold',
                                   weight: 'bold',
-                                  size: '22px'
+                                  size: '30px'
                                 }
                               }
                             },
