@@ -48478,13 +48478,34 @@ function _loadData() {
                                 font: {
                                   style: 'bold',
                                   weight: 'bold',
-                                  size: '30px'
+                                  size: '33px'
+                                }
+                              },
+                              legend: {
+                                display: true,
+                                labels: {
+                                  // This more specific font property overrides the global property
+                                  font: {
+                                    size: 30
+                                  }
                                 }
                               }
                             },
                             scales: {
                               y: {
-                                beginAtZero: true
+                                beginAtZero: true,
+                                ticks: {
+                                  font: {
+                                    size: 24
+                                  }
+                                }
+                              },
+                              x: {
+                                ticks: {
+                                  font: {
+                                    size: 24
+                                  }
+                                }
                               }
                             }
                           }

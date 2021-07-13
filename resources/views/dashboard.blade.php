@@ -85,7 +85,7 @@
                     <h3 class="selledText col-auto mx-auto fw-bold" id="selledText"></h3>
                 </div>
             </div>
-            <section data-background-image="/logo-impro.png" data-background-size="700px" data-background-opacity="0.3" data-background-position="50% 100%">
+            <section data-transition="convex" data-background-image="/logo-impro.png" data-background-size="700px" data-background-opacity="0.3" data-background-position="50% 100%">
                 <div class="container">
                     <div class=" text-light my-3 mx-auto row ms-1">
                         <h4 class="mx-auto col-auto table-header fs-2">
@@ -108,7 +108,7 @@
                                         <th scope="col">Total OC</th>
                                     </tr>
                                 </thead>
-                                <tbody style="font-size:25px;">
+                                <tbody style="font-size:32px;">
 
                                 </tbody>
                             </table>
@@ -117,7 +117,7 @@
                 </div>
             </section>
 
-            <section data-background-image="/logo-impro.png" data-background-size="700px" data-background-opacity="0.3" data-background-position="50% 100%">
+            <section data-transition="convex" data-background-image="/logo-impro.png" data-background-size="700px" data-background-opacity="0.3" data-background-position="50% 100%">
                 <div class="container">
 
                     <div class="row">
@@ -145,7 +145,7 @@
 
 
             </section>
-            <section data-background-image="/logo-impro.png" data-background-size="700px" data-background-opacity="0.3" data-background-position="50% 100%">
+            <section data-transition="convex" data-background-image="/logo-impro.png" data-background-size="700px" data-background-opacity="0.3" data-background-position="50% 100%">
                 <div class="container">
 
                     <div class="row">
@@ -164,7 +164,7 @@
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
-                                        <tbody style="font-size:30px;">
+                                        <tbody style="font-size:34px;">
 
                                         </tbody>
                                     </table>
@@ -178,7 +178,7 @@
 
 
             </section>
-            <section data-background-image="/logo-impro.png" data-background-size="700px" data-background-opacity="0.3" data-background-position="50% 100%">
+            <section data-transition="convex" data-background-image="/logo-impro.png" data-background-size="700px" data-background-opacity="0.3" data-background-position="50% 100%">
                 <div class="container">
 
                     <div class="row">
@@ -196,7 +196,7 @@
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
-                                        <tbody style="font-size:30px;">
+                                        <tbody style="font-size:34px;">
 
                                         </tbody>
                                     </table>
