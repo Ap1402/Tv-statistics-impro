@@ -64,7 +64,7 @@
                     <h3 class="goalText fw-bold col-auto mx-auto" id="goalText" style="margin-top:30px;">
                         <h3 class="selledText col-auto mx-auto fw-bold" id="selledText"></h3>
                         <table class="table strip d-none" id="table-goals">
-                            <thead class="table-header text-light" style="font-size:16px;">
+                            <thead class="table-header text-light" style="font-size:30px;">
                                 <tr>
                                     <th scope="col">Vendedor</th>
                                     <th scope="col">Meta</th>
