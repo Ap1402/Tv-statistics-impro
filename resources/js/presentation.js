@@ -201,11 +201,11 @@ async function loadData() {
                             drawBorder: false,
                         },
                     }],
-                    
-                    
+
+
                 }
 
-            
+
             },
         });
 
@@ -252,33 +252,33 @@ async function loadData() {
                             size: '33px'
                         }
                     },
-                      legend: {
-                display: true,
-                 labels: {
-                    // This more specific font property overrides the global property
-                    font: {
-                        size: 30
-                    }
-                }
+                    legend: {
+                        display: true,
+                        labels: {
+                            // This more specific font property overrides the global property
+                            font: {
+                                size: 30
+                            }
+                        }
 
-            },
+                    },
                 },
                 scales: {
                     y: {
                         beginAtZero: true,
-                         ticks: {
-                font: {
-                    size: 24,
-                }
-            }
+                        ticks: {
+                            font: {
+                                size: 24,
+                            }
+                        }
                     },
                     x: {
-            ticks: {
-                font: {
-                    size: 24,
-                }
-            }
-        }
+                        ticks: {
+                            font: {
+                                size: 27,
+                            }
+                        }
+                    }
                 }
             }
         });

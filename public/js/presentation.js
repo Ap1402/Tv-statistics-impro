@@ -48503,7 +48503,7 @@ function _loadData() {
                               x: {
                                 ticks: {
                                   font: {
-                                    size: 24
+                                    size: 27
                                   }
                                 }
                               }
