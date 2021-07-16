@@ -64,7 +64,7 @@
                     <img src="/logo-impro.png" class="img-logo" />
 
                 </div>
-                <div class="col-6 my-auto row mx-auto">
+                <div class="col-5 my-auto row mx-auto">
                     <h3 class="goalText fw-bold col-auto mx-auto" id="goalText" style="margin-top:30px;">
                         <h3 class="selledText col-auto mx-auto fw-bold" id="selledText"></h3>
                         <table class="table strip d-none" id="table-goals">
