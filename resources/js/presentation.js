@@ -134,7 +134,7 @@ async function loadData() {
                 if (dataMonth[i].__EMPTY_1 === 'JESUS MONTOYA') {
                     continue;
                 }
-                labels.push(dataMonth[i].__EMPTY_1);
+                labels.push(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]);
                 acum += dataMonth[i].__EMPTY_7;
                 goalTotal += dataMonth[i].__EMPTY_9;
                 data.push(dataMonth[i].__EMPTY_7);
@@ -239,6 +239,7 @@ async function loadData() {
                 }]
             },
             options: {
+                indexAxis: 'x',
                 plugins: {
                     // Change options for ALL labels of THIS CHART
                     datalabels: {
@@ -257,7 +258,7 @@ async function loadData() {
                         labels: {
                             // This more specific font property overrides the global property
                             font: {
-                                size: 30
+                                size: 25
                             }
                         }
 
@@ -268,14 +269,15 @@ async function loadData() {
                         beginAtZero: true,
                         ticks: {
                             font: {
-                                size: 24,
+                                size: 30,
                             }
                         }
                     },
                     x: {
                         ticks: {
+                            maxTicksLimit: 7,
                             font: {
-                                size: 27,
+                                size: 30,
                             }
                         }
                     }
@@ -304,6 +306,7 @@ async function loadData() {
             });
 
             let wsname = workbook.SheetNames[6];
+            console.log(wsname)
             let wsnameMonth = workbook.SheetNames[7];
             let wsnameGoals = workbook.SheetNames[9];
             let wsnameQuotations = workbook.SheetNames[1];

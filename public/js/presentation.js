@@ -48395,7 +48395,7 @@ function _loadData() {
                         return _context6.abrupt("continue", 12);
 
                       case 8:
-                        labels.push(dataMonth[i].__EMPTY_1);
+                        labels.push(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]);
                         acum += dataMonth[i].__EMPTY_7;
                         goalTotal += dataMonth[i].__EMPTY_9;
                         data.push(dataMonth[i].__EMPTY_7);
@@ -48469,6 +48469,7 @@ function _loadData() {
                             }]
                           },
                           options: {
+                            indexAxis: 'x',
                             plugins: {
                               // Change options for ALL labels of THIS CHART
                               datalabels: {
@@ -48486,7 +48487,7 @@ function _loadData() {
                                 labels: {
                                   // This more specific font property overrides the global property
                                   font: {
-                                    size: 30
+                                    size: 25
                                   }
                                 }
                               }
@@ -48496,14 +48497,15 @@ function _loadData() {
                                 beginAtZero: true,
                                 ticks: {
                                   font: {
-                                    size: 24
+                                    size: 30
                                   }
                                 }
                               },
                               x: {
                                 ticks: {
+                                  maxTicksLimit: 7,
                                   font: {
-                                    size: 27
+                                    size: 30
                                   }
                                 }
                               }
@@ -48557,6 +48559,7 @@ function _loadData() {
                             type: "binary"
                           });
                           var wsname = workbook.SheetNames[6];
+                          console.log(wsname);
                           var wsnameMonth = workbook.SheetNames[7];
                           var wsnameGoals = workbook.SheetNames[9];
                           var wsnameQuotations = workbook.SheetNames[1];

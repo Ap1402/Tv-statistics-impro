@@ -48,6 +48,10 @@
             background-color: rgb(34, 62, 107, 0.8);
             color: white;
         }
+
+        .selledText, .goalText {
+            font-size: 40px;
+        }
     </style>
 </head>
 
@@ -60,7 +64,7 @@
                     <img src="/logo-impro.png" class="img-logo" />
 
                 </div>
-                <div class="col-3 my-auto row mx-auto">
+                <div class="col-6 my-auto row mx-auto">
                     <h3 class="goalText fw-bold col-auto mx-auto" id="goalText" style="margin-top:30px;">
                         <h3 class="selledText col-auto mx-auto fw-bold" id="selledText"></h3>
                         <table class="table strip d-none" id="table-goals">
@@ -121,7 +125,7 @@
                 <div class="container">
 
                     <div class="row">
-                        <div class="col-8 mx-auto">
+                        <div class="col-9 mx-auto">
                             <div class="card shadow">
                                 <div class="card-header table-header text-light fs-3 my-3">
                                     Ventas en el mes
@@ -130,7 +134,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4 mx-auto">
+                        <div class="col-4 mx-auto d-none">
                             <div class="card shadow">
                                 <div class="card-header bg-orange text-light fs-3 my-3">
                                     Total completado de la meta
