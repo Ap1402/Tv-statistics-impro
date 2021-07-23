@@ -236,11 +236,14 @@ async function loadData() {
                         formatter: function (value, context) {
                             return formatNumber(value);
                         },
+                        anchor: 'end',
+                        align: 'end',
+                        offset: 10,
                         font: {
                             style: 'bold',
                             weight: 'bold',
 
-                            size: '33px'
+                            size: '40px'
                         }
                     },
                     legend: {
@@ -248,7 +251,7 @@ async function loadData() {
                         labels: {
                             // This more specific font property overrides the global property
                             font: {
-                                size: 25
+                                size: 30
                             }
                         }
 
@@ -259,15 +262,15 @@ async function loadData() {
                         beginAtZero: true,
                         ticks: {
                             font: {
-                                size: 30,
+                                size: 35,
                             }
+
                         }
                     },
                     x: {
                         ticks: {
-                            maxTicksLimit: 7,
                             font: {
-                                size: 35,
+                                size: 40,
                             }
                         }
                     }
