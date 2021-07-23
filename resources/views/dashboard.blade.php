@@ -107,7 +107,7 @@
                                                 <th scope="col">Total OC</th>
                                             </tr>
                                         </thead>
-                                        <tbody style="font-size:35px;">
+                                        <tbody style="font-size:40px;">
 
                                         </tbody>
                                     </table>
@@ -165,7 +165,7 @@
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
-                                        <tbody style="font-size:34px;">
+                                        <tbody style="font-size:40px;">
 
                                         </tbody>
                                     </table>
