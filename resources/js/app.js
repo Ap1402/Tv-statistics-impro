@@ -2,7 +2,7 @@ import Reveal from 'reveal.js';
 
 let deck = new Reveal({
 	disableLayout: true,
-	autoSlide: 20000,
+	autoSlide: 10000,
 	loop: true
 })
 

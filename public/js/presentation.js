@@ -48300,112 +48300,68 @@ function _tableCreateLastOrders() {
   return _tableCreateLastOrders.apply(this, arguments);
 }
 
-function tableCreateGoals(_x4) {
-  return _tableCreateGoals.apply(this, arguments);
-}
-
-function _tableCreateGoals() {
-  _tableCreateGoals = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(_ref4) {
-    var _ref4$data, data, tbl, i, tr;
-
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
-      while (1) {
-        switch (_context4.prev = _context4.next) {
-          case 0:
-            _ref4$data = _ref4.data, data = _ref4$data === void 0 ? null : _ref4$data;
-            tbl = document.getElementById('table-goals').getElementsByTagName('tbody')[0];
-            tbl.innerHTML = '';
-            i = 0;
-
-          case 4:
-            if (!(i < data.length)) {
-              _context4.next = 13;
-              break;
-            }
-
-            if (!(data[i]['Vendedor'] === 'JESUS MONTOYA')) {
-              _context4.next = 7;
-              break;
-            }
-
-            return _context4.abrupt("continue", 10);
-
-          case 7:
-            tr = tbl.insertRow();
-            tr.insertCell().appendChild(document.createTextNode(data[i]['Vendedor']));
-            tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i][MONTHS_LIST[month]])));
-
-          case 10:
-            i++;
-            _context4.next = 4;
-            break;
-
-          case 13:
-          case "end":
-            return _context4.stop();
-        }
-      }
-    }, _callee4);
-  }));
-  return _tableCreateGoals.apply(this, arguments);
-}
-
 function loadData() {
   return _loadData.apply(this, arguments);
 }
 
 function _loadData() {
-  _loadData = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
+  _loadData = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
     var acum, goalTotal, graphCreate, _graphCreate, readExcel, result;
 
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
       while (1) {
-        switch (_context7.prev = _context7.next) {
+        switch (_context6.prev = _context6.next) {
           case 0:
             _graphCreate = function _graphCreate3() {
-              _graphCreate = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(_ref5) {
-                var _ref5$dataMonth, dataMonth, labels, data, i, ctx, ctxGoal, percentFilled, percentLeft, goalChart, myChart;
+              _graphCreate = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(_ref4) {
+                var _ref4$dataMonth, dataMonth, labels, data, tbl, i, tr, ctx, ctxGoal, percentFilled, percentLeft, goalChart, myChart;
 
-                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
                   while (1) {
-                    switch (_context6.prev = _context6.next) {
+                    switch (_context5.prev = _context5.next) {
                       case 0:
-                        _ref5$dataMonth = _ref5.dataMonth, dataMonth = _ref5$dataMonth === void 0 ? null : _ref5$dataMonth;
+                        _ref4$dataMonth = _ref4.dataMonth, dataMonth = _ref4$dataMonth === void 0 ? null : _ref4$dataMonth;
                         labels = [];
-                        data = []; // Esto se debe cambiar si entra un vendedor nuevo
+                        data = [];
+                        tbl = document.getElementById('table-goals').getElementsByTagName('tbody')[0];
+                        tbl.innerHTML = ''; // Esto se debe cambiar si entra un vendedor nuevo
 
                         i = 2;
 
-                      case 4:
+                      case 6:
                         if (!(i <= 7)) {
-                          _context6.next = 15;
+                          _context5.next = 21;
                           break;
                         }
 
                         if (!(i <= 7)) {
-                          _context6.next = 12;
+                          _context5.next = 18;
                           break;
                         }
 
                         if (!(dataMonth[i].__EMPTY_1 === 'JESUS MONTOYA')) {
-                          _context6.next = 8;
+                          _context5.next = 10;
                           break;
                         }
 
-                        return _context6.abrupt("continue", 12);
+                        return _context5.abrupt("continue", 18);
 
-                      case 8:
+                      case 10:
+                        tr = tbl.insertRow();
+                        tr.insertCell().appendChild(document.createTextNode(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]));
+                        tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
+                        tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
                         labels.push(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]);
                         acum += dataMonth[i].__EMPTY_7;
                         goalTotal += dataMonth[i].__EMPTY_9;
                         data.push(dataMonth[i].__EMPTY_7);
 
-                      case 12:
+                      case 18:
                         i++;
-                        _context6.next = 4;
+                        _context5.next = 6;
                         break;
 
-                      case 15:
+                      case 21:
                         document.getElementById('goalText').innerText = 'Meta: ' + formatNumber(goalTotal);
                         document.getElementById('selledText').innerText = 'Vendidos: ' + formatNumber(Math.round(acum));
                         ctx = document.createElement('canvas');
@@ -48469,7 +48425,7 @@ function _loadData() {
                             }]
                           },
                           options: {
-                            indexAxis: 'x',
+                            indexAxis: 'y',
                             plugins: {
                               // Change options for ALL labels of THIS CHART
                               datalabels: {
@@ -48505,7 +48461,7 @@ function _loadData() {
                                 ticks: {
                                   maxTicksLimit: 7,
                                   font: {
-                                    size: 30
+                                    size: 35
                                   }
                                 }
                               }
@@ -48513,17 +48469,17 @@ function _loadData() {
                           }
                         });
 
-                      case 28:
+                      case 34:
                       case "end":
-                        return _context6.stop();
+                        return _context5.stop();
                     }
                   }
-                }, _callee6);
+                }, _callee5);
               }));
               return _graphCreate.apply(this, arguments);
             };
 
-            graphCreate = function _graphCreate2(_x5) {
+            graphCreate = function _graphCreate2(_x4) {
               return _graphCreate.apply(this, arguments);
             };
 
@@ -48531,11 +48487,11 @@ function _loadData() {
             goalTotal = 0;
 
             readExcel = /*#__PURE__*/function () {
-              var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(file) {
+              var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(file) {
                 var oReq;
-                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
                   while (1) {
-                    switch (_context5.prev = _context5.next) {
+                    switch (_context4.prev = _context4.next) {
                       case 0:
                         oReq = new XMLHttpRequest();
                         oReq.open("GET", "storage/Cotizaciones.xlsx", true);
@@ -48580,9 +48536,6 @@ function _loadData() {
                           tableCreateLastOrders({
                             data: dataLastQuotes
                           });
-                          tableCreateGoals({
-                            data: dataGoals
-                          });
                           graphCreate({
                             dataMonth: dataMonth
                           });
@@ -48592,29 +48545,29 @@ function _loadData() {
 
                       case 5:
                       case "end":
-                        return _context5.stop();
+                        return _context4.stop();
                     }
                   }
-                }, _callee5);
+                }, _callee4);
               }));
 
-              return function readExcel(_x6) {
-                return _ref6.apply(this, arguments);
+              return function readExcel(_x5) {
+                return _ref5.apply(this, arguments);
               };
             }();
 
-            _context7.next = 7;
+            _context6.next = 7;
             return readExcel("storage/Cotizaciones.xlsx");
 
           case 7:
-            result = _context7.sent;
+            result = _context6.sent;
 
           case 8:
           case "end":
-            return _context7.stop();
+            return _context6.stop();
         }
       }
-    }, _callee7);
+    }, _callee6);
   }));
   return _loadData.apply(this, arguments);
 }

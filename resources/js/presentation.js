@@ -98,24 +98,6 @@ async function tableCreateLastOrders({
     }
 }
 
-
-async function tableCreateGoals({
-    data = null
-}) {
-    const tbl = document.getElementById('table-goals').getElementsByTagName('tbody')[0];
-    tbl.innerHTML = '';
-
-    for (var i = 0; i < data.length; i++) {
-        if (data[i]['Vendedor'] === 'JESUS MONTOYA') {
-            continue;
-        }
-        var tr = tbl.insertRow();
-        tr.insertCell().appendChild(document.createTextNode(data[i]['Vendedor']));
-        tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i][MONTHS_LIST[month]])));
-    }
-
-}
-
 async function loadData() {
 
 
@@ -128,12 +110,20 @@ async function loadData() {
     }) {
         let labels = [];
         let data = [];
+        const tbl = document.getElementById('table-goals').getElementsByTagName('tbody')[0];
+        tbl.innerHTML = '';
+
         // Esto se debe cambiar si entra un vendedor nuevo
         for (var i = 2; i <= 7; i++) {
             if ((i <= 7)) {
                 if (dataMonth[i].__EMPTY_1 === 'JESUS MONTOYA') {
                     continue;
                 }
+                var tr = tbl.insertRow();
+                tr.insertCell().appendChild(document.createTextNode(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]));
+                tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
+                tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
+
                 labels.push(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]);
                 acum += dataMonth[i].__EMPTY_7;
                 goalTotal += dataMonth[i].__EMPTY_9;
@@ -239,7 +229,7 @@ async function loadData() {
                 }]
             },
             options: {
-                indexAxis: 'x',
+                indexAxis: 'y',
                 plugins: {
                     // Change options for ALL labels of THIS CHART
                     datalabels: {
@@ -277,7 +267,7 @@ async function loadData() {
                         ticks: {
                             maxTicksLimit: 7,
                             font: {
-                                size: 30,
+                                size: 35,
                             }
                         }
                     }
@@ -330,9 +320,6 @@ async function loadData() {
 
             tableCreateLastOrders({
                 data: dataLastQuotes
-            });
-            tableCreateGoals({
-                data: dataGoals
             });
 
             graphCreate({

@@ -13,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var deck = new reveal_js__WEBPACK_IMPORTED_MODULE_0__.default({
   disableLayout: true,
-  autoSlide: 20000,
+  autoSlide: 10000,
   loop: true
 });
 deck.initialize();

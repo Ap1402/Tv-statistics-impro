@@ -49,8 +49,9 @@
             color: white;
         }
 
-        .selledText, .goalText {
-            font-size: 40px;
+        .selledText,
+        .goalText {
+            font-size: 45px;
         }
     </style>
 </head>
@@ -67,15 +68,7 @@
                 <div class="col-5 my-auto row mx-auto">
                     <h3 class="goalText fw-bold col-auto mx-auto" id="goalText" style="margin-top:30px;">
                         <h3 class="selledText col-auto mx-auto fw-bold" id="selledText"></h3>
-                        <table class="table strip d-none" id="table-goals">
-                            <thead class="table-header text-light" style="font-size:30px;">
-                                <tr>
-                                    <th scope="col">Vendedor</th>
-                                    <th scope="col">Meta</th>
-                                </tr>
-                            </thead>
-                            <tbody style="font-size:25px;"></tbody>
-                        </table>
+
                         <h3 id="monthText" class="col-auto mx-auto p-3 rounded text-light fw-bold d-none" style="background-color:#004880;"></h3>
                 </div>
             </div>
@@ -91,31 +84,35 @@
             </div>
             <section data-transition="convex" data-background-image="/logo-impro.png" data-background-size="700px" data-background-opacity="0.3" data-background-position="50% 100%">
                 <div class="container">
-                    <div class=" text-light my-3 mx-auto row ms-1">
-                        <h4 class="mx-auto col-auto table-header fs-2">
-                            Actividad del día
+                    <div class="row">
+                        <div class="col-12">
+                            <div class=" text-light my-3 mx-auto row ms-1">
+                                <h4 class="mx-auto col-auto table-header fs-2">
+                                    Actividad del día
 
-                        </h4>
-                    </div>
-                    <div class="card shadow">
-                        <div class="card-body">
+                                </h4>
+                            </div>
+                            <div class="card shadow">
+                                <div class="card-body">
 
-                            <table class="table strip total-row" id="table-sellers">
-                                <thead class="table-header text-light">
-                                    <tr>
-                                        <th scope="col">Vendedor</th>
-                                        <th scope="col">Cot Enviadas</th>
-                                        <th scope="col">Cot Perdidas</th>
-                                        <th scope="col">Ordenes recibidas</th>
-                                        <th scope="col">Total COT</th>
-                                        <th scope="col">Total COT perdidas</th>
-                                        <th scope="col">Total OC</th>
-                                    </tr>
-                                </thead>
-                                <tbody style="font-size:32px;">
+                                    <table class="table strip total-row" id="table-sellers">
+                                        <thead class="table-header text-light">
+                                            <tr>
+                                                <th scope="col">Vendedor</th>
+                                                <th scope="col">Cot Enviadas</th>
+                                                <th scope="col">Cot Perdidas</th>
+                                                <th scope="col">Ordenes recibidas</th>
+                                                <th scope="col">Total COT</th>
+                                                <th scope="col">Total COT perdidas</th>
+                                                <th scope="col">Total OC</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="font-size:35px;">
 
-                                </tbody>
-                            </table>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -125,7 +122,7 @@
                 <div class="container">
 
                     <div class="row">
-                        <div class="col-9 mx-auto">
+                        <div class="col-12 mx-auto">
                             <div class="card shadow">
                                 <div class="card-header table-header text-light fs-3 my-3">
                                     Ventas en el mes
@@ -203,6 +200,32 @@
                                         <tbody style="font-size:34px;">
 
                                         </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </section>
+            <section data-transition="convex" data-background-image="/logo-impro.png" data-background-size="700px" data-background-opacity="0.3" data-background-position="50% 100%">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-12 mx-auto">
+                            <div class="card shadow">
+                                <div class="card-body">
+                                    <table class="table strip" id="table-goals">
+                                        <thead class="table-header text-light" style="font-size:35px;">
+                                            <tr>
+                                                <th scope="col">Vendedor</th>
+                                                <th scope="col">Vendido</th>
+                                                <th scope="col">Meta</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="font-size:30px;"></tbody>
                                     </table>
                                 </div>
                             </div>
