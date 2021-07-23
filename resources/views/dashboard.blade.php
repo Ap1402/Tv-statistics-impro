@@ -218,14 +218,14 @@
                             <div class="card shadow">
                                 <div class="card-body">
                                     <table class="table strip" id="table-goals">
-                                        <thead class="table-header text-light" style="font-size:35px;">
+                                        <thead class="table-header text-light" style="font-size:40px;">
                                             <tr>
                                                 <th scope="col">Vendedor</th>
                                                 <th scope="col">Vendido</th>
                                                 <th scope="col">Meta</th>
                                             </tr>
                                         </thead>
-                                        <tbody style="font-size:30px;"></tbody>
+                                        <tbody style="font-size:35px;"></tbody>
                                     </table>
                                 </div>
                             </div>

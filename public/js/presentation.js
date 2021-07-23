@@ -48425,7 +48425,7 @@ function _loadData() {
                             }]
                           },
                           options: {
-                            indexAxis: 'y',
+                            indexAxis: 'x',
                             plugins: {
                               // Change options for ALL labels of THIS CHART
                               datalabels: {
@@ -48515,7 +48515,6 @@ function _loadData() {
                             type: "binary"
                           });
                           var wsname = workbook.SheetNames[6];
-                          console.log(wsname);
                           var wsnameMonth = workbook.SheetNames[7];
                           var wsnameGoals = workbook.SheetNames[9];
                           var wsnameQuotations = workbook.SheetNames[1];

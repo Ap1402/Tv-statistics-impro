@@ -229,7 +229,7 @@ async function loadData() {
                 }]
             },
             options: {
-                indexAxis: 'y',
+                indexAxis: 'x',
                 plugins: {
                     // Change options for ALL labels of THIS CHART
                     datalabels: {
@@ -296,7 +296,7 @@ async function loadData() {
             });
 
             let wsname = workbook.SheetNames[6];
-            console.log(wsname)
+
             let wsnameMonth = workbook.SheetNames[7];
             let wsnameGoals = workbook.SheetNames[9];
             let wsnameQuotations = workbook.SheetNames[1];
