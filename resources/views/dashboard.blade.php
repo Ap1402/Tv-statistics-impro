@@ -28,7 +28,7 @@
         }
 
         thead {
-            font-size: 20px;
+            font-size: 35px;
         }
 
         .table-header {
@@ -87,7 +87,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class=" text-light my-3 mx-auto row ms-1">
-                                <h4 class="mx-auto col-auto table-header fs-2">
+                                <h4 class="mx-auto col-auto table-header fs-1">
                                     Actividad del día
 
                                 </h4>
@@ -124,7 +124,7 @@
                     <div class="row">
                         <div class="col-12 mx-auto">
                             <div class="card shadow">
-                                <div class="card-header table-header text-light fs-3 my-3">
+                                <div class="card-header table-header text-light fs-1 my-3">
                                     Ventas en el mes
                                 </div>
                                 <div class="card-body" id="myChartDiv">
@@ -133,7 +133,7 @@
                         </div>
                         <div class="col-4 mx-auto d-none">
                             <div class="card shadow">
-                                <div class="card-header bg-orange text-light fs-3 my-3">
+                                <div class="card-header bg-orange text-light fs-1 my-3">
                                     Total completado de la meta
                                 </div>
                                 <div class="card-body" id="goalChartDiv">
@@ -152,7 +152,7 @@
                     <div class="row">
                         <div class="col-12 mx-auto">
                             <div class="card shadow">
-                                <div class="card-header bg-orange text-light fs-3 my-3">
+                                <div class="card-header bg-orange text-light fs-1 my-3">
                                     Últimas cotizaciones
                                 </div>
 
@@ -165,7 +165,7 @@
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
-                                        <tbody style="font-size:50px;">
+                                        <tbody style="font-size:45px;">
 
                                         </tbody>
                                     </table>
@@ -185,7 +185,7 @@
                     <div class="row">
                         <div class="col-12 mx-auto">
                             <div class="card shadow">
-                                <div class="card-header table-header text-light fs-3 my-3">
+                                <div class="card-header table-header text-light fs-1 my-3">
                                     Últimas ordenes
                                 </div>
                                 <div class="card-body">
@@ -197,7 +197,7 @@
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
-                                        <tbody style="font-size:50px;">
+                                        <tbody style="font-size:45px;">
 
                                         </tbody>
                                     </table>
@@ -218,7 +218,7 @@
                             <div class="card shadow">
                                 <div class="card-body">
                                     <table class="table strip" id="table-goals">
-                                        <thead class="table-header text-light" style="font-size:40px;">
+                                        <thead class="table-header text-light" style="font-size:50px;">
                                             <tr>
                                                 <th scope="col">Vendedor</th>
                                                 <th scope="col">Vendido</th>
