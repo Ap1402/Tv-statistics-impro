@@ -230,6 +230,11 @@ async function loadData() {
             },
             options: {
                 indexAxis: 'x',
+                layout: {
+                    padding: {
+                        top: 40
+                    }
+                },
                 plugins: {
                     // Change options for ALL labels of THIS CHART
                     datalabels: {
@@ -238,7 +243,6 @@ async function loadData() {
                         },
                         anchor: 'end',
                         align: 'end',
-                        offset: 10,
                         font: {
                             style: 'bold',
                             weight: 'bold',
@@ -247,7 +251,9 @@ async function loadData() {
                         }
                     },
                     legend: {
-                        display: true,
+                        display: false,
+                        position: 'top',
+                        align: 'end',
                         labels: {
                             // This more specific font property overrides the global property
                             font: {

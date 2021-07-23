@@ -107,7 +107,7 @@
                                                 <th scope="col">Total OC</th>
                                             </tr>
                                         </thead>
-                                        <tbody style="font-size:40px;">
+                                        <tbody style="font-size:45px;">
 
                                         </tbody>
                                     </table>
@@ -165,7 +165,7 @@
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
-                                        <tbody style="font-size:40px;">
+                                        <tbody style="font-size:50px;">
 
                                         </tbody>
                                     </table>
@@ -197,7 +197,7 @@
                                                 <th scope="col">Total</th>
                                             </tr>
                                         </thead>
-                                        <tbody style="font-size:34px;">
+                                        <tbody style="font-size:50px;">
 
                                         </tbody>
                                     </table>
@@ -225,7 +225,7 @@
                                                 <th scope="col">Meta</th>
                                             </tr>
                                         </thead>
-                                        <tbody style="font-size:35px;"></tbody>
+                                        <tbody style="font-size:50px;"></tbody>
                                     </table>
                                 </div>
                             </div>
