@@ -28,7 +28,7 @@
         }
 
         thead {
-            font-size: 35px;
+            font-size: 30px;
         }
 
         .table-header {
@@ -101,9 +101,9 @@
                                                 <th scope="col">Vendedor</th>
                                                 <th scope="col">Cot Enviadas</th>
                                                 <th scope="col">Cot Perdidas</th>
-                                                <th scope="col">Ordenes recibidas</th>
+                                                <th scope="col">Ordenes Recibidas</th>
                                                 <th scope="col">Total COT</th>
-                                                <th scope="col">Total COT perdidas</th>
+                                                <th scope="col">Total Perdidas</th>
                                                 <th scope="col">Total OC</th>
                                             </tr>
                                         </thead>
