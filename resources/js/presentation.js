@@ -119,10 +119,17 @@ async function loadData() {
                 if (dataMonth[i].__EMPTY_1 === 'JESUS MONTOYA') {
                     continue;
                 }
-                var tr = tbl.insertRow();
-                tr.insertCell().appendChild(document.createTextNode(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]));
-                tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
-                tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
+                if (dataMonth[i].__EMPTY_1 === 'JOSE') {
+                    var tr = tbl.insertRow();
+                    tr.insertCell().appendChild(document.createTextNode('NURERVIS'));
+                    tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
+                    tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
+                } else {
+                    var tr = tbl.insertRow();
+                    tr.insertCell().appendChild(document.createTextNode(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]));
+                    tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
+                    tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
+                }
 
                 labels.push(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]);
                 acum += dataMonth[i].__EMPTY_7;

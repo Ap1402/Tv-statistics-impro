@@ -48330,12 +48330,12 @@ function _loadData() {
 
                       case 6:
                         if (!(i <= 7)) {
-                          _context5.next = 21;
+                          _context5.next = 18;
                           break;
                         }
 
                         if (!(i <= 7)) {
-                          _context5.next = 18;
+                          _context5.next = 15;
                           break;
                         }
 
@@ -48344,24 +48344,32 @@ function _loadData() {
                           break;
                         }
 
-                        return _context5.abrupt("continue", 18);
+                        return _context5.abrupt("continue", 15);
 
                       case 10:
-                        tr = tbl.insertRow();
-                        tr.insertCell().appendChild(document.createTextNode(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]));
-                        tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
-                        tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
+                        if (dataMonth[i].__EMPTY_1 === 'JOSE') {
+                          tr = tbl.insertRow();
+                          tr.insertCell().appendChild(document.createTextNode('NURERVIS'));
+                          tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
+                          tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
+                        } else {
+                          tr = tbl.insertRow();
+                          tr.insertCell().appendChild(document.createTextNode(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]));
+                          tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
+                          tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
+                        }
+
                         labels.push(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]);
                         acum += dataMonth[i].__EMPTY_7;
                         goalTotal += dataMonth[i].__EMPTY_9;
                         data.push(dataMonth[i].__EMPTY_7);
 
-                      case 18:
+                      case 15:
                         i++;
                         _context5.next = 6;
                         break;
 
-                      case 21:
+                      case 18:
                         document.getElementById('goalText').innerText = 'Meta: ' + formatNumber(goalTotal);
                         document.getElementById('selledText').innerText = 'Vendidos: ' + formatNumber(Math.round(acum));
                         ctx = document.createElement('canvas');
@@ -48477,7 +48485,7 @@ function _loadData() {
                           }
                         });
 
-                      case 34:
+                      case 31:
                       case "end":
                         return _context5.stop();
                     }
