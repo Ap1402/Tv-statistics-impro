@@ -52,8 +52,13 @@ async function tableCreate({
             if (j >= 4) {
                 td.appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')])));
             } else {
+                if (data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')] === 'JOSE') {
+                    td.appendChild(document.createTextNode('NURERVIS'));
 
-                td.appendChild(document.createTextNode(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')]));
+                } else {
+
+                    td.appendChild(document.createTextNode(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')]));
+                }
             }
         }
     }
@@ -67,9 +72,17 @@ async function tableCreateLastQuotes({
     // Esto se debe cambiar si entra un vendedor nuevo
     for (var i = 0; i < data.length - 1; i++) {
         var tr = tbl.insertRow();
-        tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_8']));
-        tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_3']));
-        tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY_11'])));
+        if (data[i]['__EMPTY_3'] === 'JOSE') {
+            tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_8']));
+            tr.insertCell().appendChild(document.createTextNode('NURERVIS'));
+            tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY_11'])));
+
+        } else {
+            tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_8']));
+            tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_3']));
+            tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY_11'])));
+
+        }
     }
 }
 
@@ -124,17 +137,22 @@ async function loadData() {
                     tr.insertCell().appendChild(document.createTextNode('NURERVIS'));
                     tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
                     tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
+                    labels.push('NURERVIS'
+                    );
+                    acum += dataMonth[i].__EMPTY_7;
+                    goalTotal += dataMonth[i].__EMPTY_9;
+                    data.push(dataMonth[i].__EMPTY_7);
                 } else {
                     var tr = tbl.insertRow();
                     tr.insertCell().appendChild(document.createTextNode(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]));
                     tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
                     tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
+                    labels.push(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]);
+                    acum += dataMonth[i].__EMPTY_7;
+                    goalTotal += dataMonth[i].__EMPTY_9;
+                    data.push(dataMonth[i].__EMPTY_7);
                 }
 
-                labels.push(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]);
-                acum += dataMonth[i].__EMPTY_7;
-                goalTotal += dataMonth[i].__EMPTY_9;
-                data.push(dataMonth[i].__EMPTY_7);
             }
         }
 

@@ -48190,7 +48190,11 @@ function _tableCreate() {
                 if (j >= 4) {
                   td.appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')])));
                 } else {
-                  td.appendChild(document.createTextNode(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')]));
+                  if (data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')] === 'JOSE') {
+                    td.appendChild(document.createTextNode('NURERVIS'));
+                  } else {
+                    td.appendChild(document.createTextNode(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')]));
+                  }
                 }
               }
             }
@@ -48223,9 +48227,16 @@ function _tableCreateLastQuotes() {
 
             for (i = 0; i < data.length - 1; i++) {
               tr = tbl.insertRow();
-              tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_8']));
-              tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_3']));
-              tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY_11'])));
+
+              if (data[i]['__EMPTY_3'] === 'JOSE') {
+                tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_8']));
+                tr.insertCell().appendChild(document.createTextNode('NURERVIS'));
+                tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY_11'])));
+              } else {
+                tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_8']));
+                tr.insertCell().appendChild(document.createTextNode(data[i]['__EMPTY_3']));
+                tr.insertCell().appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY_11'])));
+              }
             }
 
           case 4:
@@ -48330,12 +48341,12 @@ function _loadData() {
 
                       case 6:
                         if (!(i <= 7)) {
-                          _context5.next = 18;
+                          _context5.next = 14;
                           break;
                         }
 
                         if (!(i <= 7)) {
-                          _context5.next = 15;
+                          _context5.next = 11;
                           break;
                         }
 
@@ -48344,7 +48355,7 @@ function _loadData() {
                           break;
                         }
 
-                        return _context5.abrupt("continue", 15);
+                        return _context5.abrupt("continue", 11);
 
                       case 10:
                         if (dataMonth[i].__EMPTY_1 === 'JOSE') {
@@ -48352,24 +48363,27 @@ function _loadData() {
                           tr.insertCell().appendChild(document.createTextNode('NURERVIS'));
                           tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
                           tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
+                          labels.push('NURERVIS');
+                          acum += dataMonth[i].__EMPTY_7;
+                          goalTotal += dataMonth[i].__EMPTY_9;
+                          data.push(dataMonth[i].__EMPTY_7);
                         } else {
                           tr = tbl.insertRow();
                           tr.insertCell().appendChild(document.createTextNode(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]));
                           tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
                           tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
+                          labels.push(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]);
+                          acum += dataMonth[i].__EMPTY_7;
+                          goalTotal += dataMonth[i].__EMPTY_9;
+                          data.push(dataMonth[i].__EMPTY_7);
                         }
 
-                        labels.push(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]);
-                        acum += dataMonth[i].__EMPTY_7;
-                        goalTotal += dataMonth[i].__EMPTY_9;
-                        data.push(dataMonth[i].__EMPTY_7);
-
-                      case 15:
+                      case 11:
                         i++;
                         _context5.next = 6;
                         break;
 
-                      case 18:
+                      case 14:
                         document.getElementById('goalText').innerText = 'Meta: ' + formatNumber(goalTotal);
                         document.getElementById('selledText').innerText = 'Vendidos: ' + formatNumber(Math.round(acum));
                         ctx = document.createElement('canvas');
@@ -48485,7 +48499,7 @@ function _loadData() {
                           }
                         });
 
-                      case 31:
+                      case 27:
                       case "end":
                         return _context5.stop();
                     }
