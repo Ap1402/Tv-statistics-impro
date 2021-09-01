@@ -43,22 +43,22 @@ async function tableCreate({
 
     const tbl = document.getElementById('table-sellers').getElementsByTagName('tbody')[0];
     tbl.innerHTML = '';
+    console.log(data)
 
     // Esto se debe cambiar si entra un vendedor nuevo
-    for (var i = 2; i <= 7; i++) {
+    for (var i = 2; i <= 9; i++) {
+        if (data[i]['__EMPTY'] === "JOSE") {
+            continue;
+        }
         var tr = tbl.insertRow();
         for (var j = 0; j < 7; j++) {
             var td = tr.insertCell();
             if (j >= 4) {
                 td.appendChild(document.createTextNode(formatNumber(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')])));
             } else {
-                if (data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')] === 'JOSE') {
-                    td.appendChild(document.createTextNode('NURERVIS'));
 
-                } else {
 
-                    td.appendChild(document.createTextNode(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')]));
-                }
+                td.appendChild(document.createTextNode(data[i]['__EMPTY' + (j !== 0 ? '_' + j : '')]));
             }
         }
     }
@@ -125,33 +125,21 @@ async function loadData() {
         let data = [];
         const tbl = document.getElementById('table-goals').getElementsByTagName('tbody')[0];
         tbl.innerHTML = '';
-
         // Esto se debe cambiar si entra un vendedor nuevo
-        for (var i = 2; i <= 7; i++) {
-            if ((i <= 7)) {
-                if (dataMonth[i].__EMPTY_1 === 'JESUS MONTOYA') {
+        for (var i = 2; i <= 9; i++) {
+            if ((i <= 9)) {
+                if (dataMonth[i].__EMPTY_1 === 'JESUS MONTOYA' || dataMonth[i].__EMPTY_1 === 'JOSE') {
                     continue;
                 }
-                if (dataMonth[i].__EMPTY_1 === 'JOSE') {
-                    var tr = tbl.insertRow();
-                    tr.insertCell().appendChild(document.createTextNode('NURERVIS'));
-                    tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
-                    tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
-                    labels.push('NURERVIS'
-                    );
-                    acum += dataMonth[i].__EMPTY_7;
-                    goalTotal += dataMonth[i].__EMPTY_9;
-                    data.push(dataMonth[i].__EMPTY_7);
-                } else {
-                    var tr = tbl.insertRow();
-                    tr.insertCell().appendChild(document.createTextNode(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]));
-                    tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
-                    tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
-                    labels.push(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]);
-                    acum += dataMonth[i].__EMPTY_7;
-                    goalTotal += dataMonth[i].__EMPTY_9;
-                    data.push(dataMonth[i].__EMPTY_7);
-                }
+                console.log(dataMonth[i])
+                var tr = tbl.insertRow();
+                tr.insertCell().appendChild(document.createTextNode(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]));
+                tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_7)));
+                tr.insertCell().appendChild(document.createTextNode(formatNumber(dataMonth[i].__EMPTY_9)));
+                labels.push(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]);
+                acum += dataMonth[i].__EMPTY_7;
+                goalTotal += dataMonth[i].__EMPTY_9;
+                data.push(dataMonth[i].__EMPTY_7);
 
             }
         }

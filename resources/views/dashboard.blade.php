@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Cargar Excel</title>
+    <title>Estadísticas Impro</title>
 
     <!-- Fonts -->
     <link href="{{ URL::asset('/css/app.css') }}" rel="stylesheet">
@@ -66,8 +66,8 @@
 
                 </div>
                 <div class="col-5 my-auto row mx-auto">
-                    <h3 class="goalText fw-bold col-auto mx-auto" id="goalText" style="margin-top:30px;">
-                        <h3 class="selledText col-auto mx-auto fw-bold" id="selledText"></h3>
+                    <h3 class="goalText fw-bold col-12 mx-auto" id="goalText" style="margin-top:30px;">
+                        <h3 class="selledText col-12 mx-auto fw-bold" id="selledText"></h3>
 
                         <h3 id="monthText" class="col-auto mx-auto p-3 rounded text-light fw-bold d-none" style="background-color:#004880;"></h3>
                 </div>
