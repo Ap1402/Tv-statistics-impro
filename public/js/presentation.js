@@ -48351,29 +48351,30 @@ function _loadData() {
                         labels = [];
                         data = [];
                         tbl = document.getElementById('table-goals').getElementsByTagName('tbody')[0];
-                        tbl.innerHTML = ''; // Esto se debe cambiar si entra un vendedor nuevo
+                        tbl.innerHTML = '';
+                        console.log(dataMonth, 'TEST'); // Esto se debe cambiar si entra un vendedor nuevo
 
                         i = 2;
 
-                      case 6:
+                      case 7:
                         if (!(i <= 9)) {
-                          _context5.next = 22;
+                          _context5.next = 23;
                           break;
                         }
 
                         if (!(i <= 9)) {
-                          _context5.next = 19;
+                          _context5.next = 20;
                           break;
                         }
 
                         if (!(dataMonth[i].__EMPTY_1 === 'JESUS MONTOYA' || dataMonth[i].__EMPTY_1 === 'JOSE')) {
-                          _context5.next = 10;
+                          _context5.next = 11;
                           break;
                         }
 
-                        return _context5.abrupt("continue", 19);
+                        return _context5.abrupt("continue", 20);
 
-                      case 10:
+                      case 11:
                         console.log(dataMonth[i]);
                         tr = tbl.insertRow();
                         tr.insertCell().appendChild(document.createTextNode(dataMonth[i].__EMPTY_1.split(/\s(.+)/)[0]));
@@ -48384,12 +48385,12 @@ function _loadData() {
                         goalTotal += dataMonth[i].__EMPTY_9;
                         data.push(dataMonth[i].__EMPTY_7);
 
-                      case 19:
+                      case 20:
                         i++;
-                        _context5.next = 6;
+                        _context5.next = 7;
                         break;
 
-                      case 22:
+                      case 23:
                         document.getElementById('goalText').innerText = 'Meta: ' + formatNumber(goalTotal);
                         document.getElementById('selledText').innerText = 'Vendidos: ' + formatNumber(Math.round(acum));
                         ctx = document.createElement('canvas');
@@ -48505,7 +48506,7 @@ function _loadData() {
                           }
                         });
 
-                      case 35:
+                      case 36:
                       case "end":
                         return _context5.stop();
                     }
@@ -48550,8 +48551,9 @@ function _loadData() {
                           var workbook = xlsx__WEBPACK_IMPORTED_MODULE_2___default().read(bstr, {
                             type: "binary"
                           });
-                          var wsname = workbook.SheetNames[6];
-                          var wsnameMonth = workbook.SheetNames[7];
+                          console.log(workbook);
+                          var wsname = workbook.SheetNames[4];
+                          var wsnameMonth = workbook.SheetNames[6];
                           var wsnameGoals = workbook.SheetNames[9];
                           var wsnameQuotations = workbook.SheetNames[1];
                           var ws = workbook.Sheets[wsname];

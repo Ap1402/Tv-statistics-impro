@@ -125,6 +125,7 @@ async function loadData() {
         let data = [];
         const tbl = document.getElementById('table-goals').getElementsByTagName('tbody')[0];
         tbl.innerHTML = '';
+        console.log(dataMonth, 'TEST')
         // Esto se debe cambiar si entra un vendedor nuevo
         for (var i = 2; i <= 9; i++) {
             if ((i <= 9)) {
@@ -317,9 +318,11 @@ async function loadData() {
                 type: "binary"
             });
 
-            let wsname = workbook.SheetNames[6];
+            console.log(workbook)
 
-            let wsnameMonth = workbook.SheetNames[7];
+            let wsname = workbook.SheetNames[4];
+
+            let wsnameMonth = workbook.SheetNames[6];
             let wsnameGoals = workbook.SheetNames[9];
             let wsnameQuotations = workbook.SheetNames[1];
 

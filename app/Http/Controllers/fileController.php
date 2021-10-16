@@ -23,7 +23,7 @@ class fileController extends Controller
     public function download(Request $request)
     {
         $test = null;
-        $data = Excel::toArray(new SellerImport,  Storage::path('Cotizaciones.xlsx'));
+        $data = Excel::toArray(new SellerImport,  Storage::path('cotizaciones.xlsx'));
         return $data;
     }
 
